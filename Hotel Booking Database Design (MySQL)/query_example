@@ -1,0 +1,26 @@
+-- Example 1 — JOIN: Show customer reservations
+SELECT c.customer_name, h.hotel_name, r.room_number, b.check_in, b.check_out
+FROM Booking b
+JOIN Customer c
+    ON b.customer_id = c.customer_id
+JOIN Room r
+    ON b.room_id = r.room_id
+JOIN Hotel h
+    ON r.hotel_id = h.hotel_id;
+-- Example 2 — Subquery: Customers who have made a booking
+SELECT customer_id, customer_name
+FROM Customer
+WHERE customer_id IN (
+    SELECT customer_id
+    FROM Booking
+);
+-- Example 3 — Room availability check
+SELECT
+    room_id,
+    check_in,
+    check_out
+FROM Booking
+WHERE room_id = 'R001'
+  AND booking_status IN ('Pending', 'Confirmed')
+  AND check_in < '2027-06-15'
+  AND check_out > '2027-06-12';
