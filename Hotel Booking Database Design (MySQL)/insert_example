@@ -1,0 +1,43 @@
+
+INSERT INTO Hotel
+    (hotel_id, hotel_name, location)
+VALUES
+    ('H001', 'Bangkok Grand Hotel', 'Bangkok'),
+    ('H002', 'Chiang Mai Resort', 'Chiang Mai');
+
+INSERT INTO Customer
+    (customer_id, customer_name, email, phone)
+VALUES
+    ('C001', 'John Smith', 'john@example.com', '0812345678'),
+    ('C002', 'Jane Doe', 'jane@example.com', '0898765432');
+
+INSERT INTO Room (
+    room_id,
+    hotel_id,
+    room_number,
+    price
+)
+VALUES (
+    'R001',
+    'H001',
+    '101',
+    2500.00
+);
+
+INSERT INTO Booking (
+    booking_id,
+    customer_id,
+    room_id,
+    check_in,
+    check_out,
+    booking_status
+)
+VALUES (
+    'B002',
+    'C002',
+    'R001',
+    '2027-06-12',
+    '2027-06-15',
+    'Confirmed'
+);
+
